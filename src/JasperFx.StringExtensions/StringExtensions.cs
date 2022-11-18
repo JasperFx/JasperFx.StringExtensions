@@ -354,4 +354,26 @@ public static class StringExtensions
     {
         return source.Contains(value, StringComparison.OrdinalIgnoreCase);
     }
+    
+    /// <summary>
+    /// Concatenates a string between each item in a list of strings
+    /// </summary>
+    /// <param name="values">The array of strings to join</param>
+    /// <param name="separator">The value to concatenate between items</param>
+    /// <returns></returns>
+    public static string Join(this string[] values, string separator)
+    {
+        return string.Join(separator, values);
+    }
+
+    /// <summary>
+    /// Concatenates a string between each item in a sequence of strings
+    /// </summary>
+    /// <param name="values"></param>
+    /// <param name="separator"></param>
+    /// <returns></returns>
+    public static string Join(this IEnumerable<string> values, string separator)
+    {
+        return Join(values.ToArray(), separator);
+    }
 }
